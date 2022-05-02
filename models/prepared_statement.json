@@ -1,0 +1,30 @@
+{
+    "prepared_statement": {
+        "example": {
+            "get":{
+                "name": "example_get",
+                "text": "SELECT * FROM example"
+            },
+            "post":{
+                "name": "example_post",
+                "text": "INSERT INTO example (email, nombre, password, anos_experiencia, especialidad, foto, estado) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING*;",
+                "values": []
+            },
+            "put":{
+                "name": "example_put",
+                "text": "UPDATE example SET nombre=$2, password=$3, anos_experiencia=$4, especialidad=$5 WHERE email=$1 RETURNING*;",
+                "values": []
+            },
+            "delete":{
+                "name": "user_delete",
+                "text": "DELETE FROM example WHERE id=$1",
+                "values": []
+            },
+            "state":{
+                "name": "example_put_state",
+                "text": "UPDATE example SET estado=$2 WHERE id=$1 RETURNING*;",
+                "values": []
+            }
+        }
+    }
+}
