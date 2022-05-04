@@ -1,6 +1,4 @@
-CREATE DATABASE monet;
 
-\c monet;
 
 CREATE  TABLE entity ( 
  );
