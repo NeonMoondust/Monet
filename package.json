@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "migrate": "node ./models/database/migrate.js"
   },
   "keywords": [],
   "author": "NeonMoondust <backanconz2@gmail.com>",
