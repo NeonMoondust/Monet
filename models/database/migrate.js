@@ -15,7 +15,7 @@ async function migrate(){
         await client.connect();
         return (await client.query(sql)).rows;
     }catch(e){
-        console.log('Algo paso en en el intento de Conexion' + e);
+        console.log('Algo paso en en el intento de Conexion -> ' + e);
     }finally{
         await client.end();
     }
