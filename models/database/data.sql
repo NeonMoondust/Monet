@@ -1,11 +1,3 @@
-
-
-CREATE  TABLE entity ( 
- );
-
-CREATE  TABLE entity_0 ( 
- );
-
 CREATE  TABLE existencias ( 
 	id                   serial  NOT NULL  ,
 	fecha_creacion       timestamp DEFAULT systimestamp   ,
