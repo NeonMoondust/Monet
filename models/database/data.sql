@@ -1,6 +1,6 @@
 CREATE  TABLE existencias ( 
 	id                   serial  NOT NULL  ,
-	fecha_creacion       timestamp DEFAULT systimestamp   ,
+	fecha_creacion       timestamp ,
 	id_producto          serial    ,
 	total_producto       serial    ,
 	id_ubicacion         serial    ,
