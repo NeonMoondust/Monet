@@ -1,0 +1,8 @@
+body, html{
+    font-family: 'Quicksand', sans-serif;
+    height: 100%;
+}
+
+.filtered-product-card-img{
+    bottom: 8px;
+}

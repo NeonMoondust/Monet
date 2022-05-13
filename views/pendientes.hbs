@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <link rel="stylesheet" href="./css/pendientes.css">
+</head>
+<body>
+    {{> navbar}}
+    <div class="grid grid-cols-12 w-full bg-red h-full relative">
+        <aside class="h-full bg-neutral-300 col-start-1 col-end-6 border-solid border-r-4 border-black flex flex-col gap-3">
+            <div class="h-full">
+                <p class="text-center font-bold text-2xl my-4">Producto Seleccionado</p>
+                <form action="" class="flex flex-col gap-6 mx-8 h-full">
+                    <img id="output" class="w-full max-h-56 bg-white border border-solid border-black">
+                    <div class="flex flex-row gap-2 items-center text-center w-full">
+                        <label class="w-2/12 text-left font-bold text-lg" for="filtrar">Filtrar</label>
+                        <input class="w-10/12" type="text" name="filtrar" id="input_filter">
+                    </div>
+                    <div class="h-2/6 border-solid border border-black w-full bg-white grid grid-cols-4 gap-1.5 overflow-y-auto" id="selected_product_container">
+                        <div class="border-solid border-2 border-black relative w-full hover:bg-neutral-50 h-40 mb-1 hover:cursor-pointer">
+                            <div class="flex flex-row items-center justify-between">
+                                <div class="w-16 h-16 rounded-full border-solid border border-black relative my-3 ml-2">
+                                    <img class="absolute filtered-product-card-img" src="./assets/img_default.png" width="100">
+                                </div>
+                                <p class="mx-auto">ID 232</p>
+                                <div class="bg-green-500 rounded-full h-3 w-3 absolute right-2 top-2"></div>
+                            </div>
+                            <div class="border-t-2 border-solid border-black mt-1 flex flex-col items-center">
+                                <p class="text-center mt-1">Lente cerca</p>
+                                <p class="text-center">Stock: 4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-2/6 border-solid border border-black w-full bg-white flex flex-col gap-1 overflow-y-auto" id="selected_product_container">
+                        <div class="h-20 relative flex flex-row gap-4 items-center border border-solid border-black min-h-max w-11/12">
+                            <div class="w-3/12 h-full border-solid border border-black">
+                                <img class="mx-auto h-full bg-white"  src="./assets/img_default.png">
+                            </div>
+                            <div class="flex flex-row w-4/12">
+                                <p class="text-md w-2/5 text-center font-bold grid items-center">ID 232</p>
+                                <p class="text-md w-3/5 text-center">Lente cerca</p>
+                            </div>
+                            <div class="w-3/12 flex flex-row">
+                                <p class="text-xl font-bold w-2/6 grid items-center">X</p>
+                                <div class="w-4/6 flex flex-col gap-1">
+                                    <p class="text-sm">stock: 4</p>
+                                    <input type="number" class="text-xl font-bold text-center h-2/5" value="1">
+                                </div>
+                            </div>
+                            <button type="button" class="w-2/12 bg-red-700 hover:bg-red-800 text-white font-bold content-center border border-solid border-black h-full">Eliminar</button>
+                        </div>
+                    </div>
+                    <button class="bg-neutral-800 hover:bg-black text-white font-bold py-4 w-full text-xl" type="button">Cambiar Producto y finalizar rebaje</button>
+                </form>
+            </div>
+        </aside>
+        <div class="absolute flex flex-row right-12 top-1 gap-4">
+            <div class="flex flex-col relative">
+                <p class="font-bold text-md">Finalizar</p>
+                <img class="mx-auto hover:cursor-pointer" src="./assets/pendientes/campanita_alerta_on.png" width="25">
+                <p class="text-md text-center">On</p>
+            </div>
+            <div class="flex flex-col relative">
+                <p class="font-bold text-md">Cancelar</p>
+                <img class="mx-auto hover:cursor-pointer" src="./assets/pendientes/campanita_alerta_on.png" width="25">
+                <p class="text-md text-center">On</p>
+            </div>
+        </div>
+        <div class="flex flex-col gap-3 bg-white mt-20 h-full pl-10 col-start-6 col-end-13 pr-10 overflow-y-scroll">
+            <div class="h-24 flex flex-col w-full">
+                <div class="flex flex-col">
+                    <p class="text-xs font-bold">10 de marzo del 2022 a las 06:32 pm</p>
+                    <div class="h-16 relative flex flex-row gap-2 items-center border-2 border-solid border-black min-h-max w-full">
+                        <div class="w-1/12 h-full border-solid border border-black">
+                            <img class="mx-auto h-full bg-white"  src="./assets/img_default.png">
+                        </div>
+                        <div class="flex flex-row w-3/12">
+                            <p class="text-xl w-1/2 text-center grid items-center">ID 232</p>
+                            <p class="text-xl w-1/2 text-center">Lente Cerca</p>
+                        </div>
+                        <div class="w-2/12 flex flex-row">
+                            <p class="text-xl font-bold w-1/2 text-center">X</p>
+                            <p class="text-xl font-bold w-1/2 text-center">1</p>
+                        </div>
+                        <div class="w-6/12 flex flex-row gap-1">
+                            <button type="button" class="font-bold text-lg py-1 w-4/12 text-white bg-green-600 hover:bg-green-700 border border-solid border-black">Finalizar</button>
+                            <button type="button" class="font-bold text-lg py-1 w-4/12 text-white bg-yellow-600 hover:bg-yellow-700 border border-solid border-black">Cambiar</button>
+                            <button type="button" class="font-bold text-lg py-1 w-4/12 mr-2 text-white bg-red-600 hover:bg-red-700 border border-solid border-black">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/pendientes.js"></script>
+</body>
+</html>
