@@ -5,3 +5,7 @@ async function admin_index(request, response){
         layout: 'admin',
     })
 }
+
+module.exports = {
+    admin_index,
+}

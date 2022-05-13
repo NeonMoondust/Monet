@@ -1,0 +1,33 @@
+body, html{
+    font-family: 'Quicksand', sans-serif;
+    height: 100vh;
+}
+.container{
+    width: 100%;
+    height: 75vh;
+    display: grid;
+    place-items: center;
+}
+.root_title{
+    font-family: 'Sarina', cursive;
+}
+
+.root_button {
+    background-color:#282828;
+    padding: 1.5rem;
+    border-radius: 14px;
+    color: white;
+    width: 450px;
+    font-weight: 700;
+}
+
+footer {
+    background-color: #282828;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.root_footer_history {
+    font-weight: 300;
+}

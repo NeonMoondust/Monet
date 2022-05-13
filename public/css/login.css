@@ -1,0 +1,17 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    height: 100vh;
+}
+
+.login_form {
+    background-color: #D3D3D3;
+    border-radius: 50px;
+}
+
+.login_button {
+    padding: 1.5rem;
+    border-radius: 14px;
+    color: white;
+    font-weight: 700;
+    background-color:#282828;
+}

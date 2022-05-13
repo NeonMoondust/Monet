@@ -1,0 +1,40 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    height: 100vh;
+}
+
+ul > a:hover{
+    text-shadow: 0 0 5px #000;
+}
+
+.to_add_button{
+    position: absolute;
+    top: -10px;
+    left: 47%;
+}
+
+.to_decrease_button{
+    position: absolute;
+    bottom: -10px;
+    left: 47%;
+}
+
+.button-add-to-side{
+    display: none;
+    color: rgba(0, 0,0, .5);
+    text-align: center;
+    bottom: 4.5px;
+    left: 2px;
+    /* border: 1px solid black; */
+    height: 100%;
+}
+div:hover > .button-add-to-side{
+    display: grid;
+    place-content: center;
+}
+
+@media (min-width: 1024px) {
+    .aside_element{
+        min-height: 25% !important;
+    }
+}

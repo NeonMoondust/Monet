@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    <div class="container m-auto justify-between grid place-items-center sm:grid-cols-2 h-screen w-full">
+        <div class="hidden sm:inline-block">
+            <img src="./assets/login/login_image.png" width="550">
+        </div>
+        <div class="w-5/6">
+            <form action="login/loginIn" method="get" class="flex flex-col login_form gap-3">
+                <img class="mx-auto my-10 md:my-20 w-3/6 sm:w-2/6" src="./assets/login/login_profile.png" width="220">
+                <p class="text-red-600 text-center hidden font-light">Usuario o Contraseña Incorrectos</p>
+                <label class="lg:ml-14 mx-auto sm:ml-6" for="username">Username</label>
+                <input class="lg:ml-14 mx-auto sm:ml-6 w-5/6 mb-4 md:mb-20" name="username" placeholder="Username" type="text" required>
+                <label class="lg:ml-14 mx-auto sm:ml-6" for="password">Password</label>
+                <input class="lg:ml-14 mx-auto sm:ml-6 w-5/6 mb-4 md:mb-20" name="password" placeholder="********" type="password" required>
+                <button class="mb-4 md:mb-20 login_button mx-auto w-4/6 sm:w-3/6 hover:bg-black">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    <script src="javascript/login.js"></script>
+</body>
+</html>
