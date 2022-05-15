@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <link rel="stylesheet" href="./css/usuarios.css">
+</head>
+<body>
+    {{> navbar}}
+    <div class="grid grid-cols-12 w-full bg-red">
+        <div class="product_container col-start-1 col-end-10 w-full bg-white h-full max-h-screen flex flex-col">
+            <div class="grid place-items-center w-full h-1/6 bg-neutral-300 border-2 border-black border-solid">
+                <div class="flex flex-row w-11/12 mx-auto items-center gap-3">
+                    <div class="w-3/6">
+                        <div class="mx-auto flex flex-row gap-3">
+                            <p class="my-auto ml-5 font-bold">Usuario</p>
+                            <input class="w-full" type="text" value="" placeholder="Nombre de usuario">
+                        </div>
+                    </div>
+                    <div class="w-3/6">
+                        <div class="flex flex-row gap-3">
+                            <p class="my-auto font-bold">Contraseña</p>
+                            <input class="w-full" type="text" value="" placeholder="*********">
+                        </div>
+                    </div>
+                    <div class="flex flex-col mb-5 items-center w-6/12 mr-3">
+                        <p class="font-bold">ROL</p>
+                        <select class=" w-10/12 mx-auto" name="rol" id="rol_selector">
+                            <option value="vendedor" selected>Vendedor</option>
+                            <option value="jefe">Jefe</option>
+                            <option value="administrador">Administrador</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="h-1/6 place-items-center grid">
+                <button type="button" class="font-bold text-lg p-5 w-4/12 text-black bg-yellow-400 hover:bg-yellow-600 border border-solid border-black">Editar datos de Usuario</button>
+            </div>
+            <div class="flex flex-col gap-2 w-full h-4/6 overflow-y-scroll">
+                <div class="flex flex-row w-11/12 h-1/6 border-black border border-solid mx-auto items-center gap-3">
+                    <div class="w-3/6">
+                        <div class="mx-auto flex flex-row gap-3">
+                            <p class="my-auto ml-5 font-bold">Usuario</p>
+                            <input class="disabled:bg-neutral-400 w-full" type="text" disabled value="Juan Alonso">
+                        </div>
+                    </div>
+                    <div class="w-3/6">
+                        <div class="flex flex-row gap-3">
+                            <p class="my-auto font-bold">Contraseña</p>
+                            <input class="disabled:bg-neutral-400 w-full" type="text" disabled value="like my pass?">
+                        </div>
+                    </div>
+                    <div class="flex flex-col mb-5 items-center w-6/12 mr-3">
+                        <p class="font-bold">ROL</p>
+                        <select class="disabled:bg-neutral-400 w-10/12 mx-auto" name="rol" id="rol_selector" disabled>
+                            <option value="administrador" selected>Administrador</option>
+                            <option value="jefe">Jefe</option>
+                            <option value="vendedor">Vendedor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="h-screen bg-neutral-300 col-start-10 col-end-13 flex flex-col gap-3 items-center">
+            <div class="mt-10 flex flex-col gap-2 items-center">
+                <p class="text-4xl underline font-bold">Vendedor</p>
+                <p class="text-lg">Rol - 2</p>
+                <p class="text-xl">Como <strong>Vendedor</strong> puede:</p>
+            </div>
+            <div class="w-10/12 h-full rounded-3xl bg-neutral-400 flex flex-col gap-5 my-5">
+                <div class="mt-8 w-10/12 mx-auto flex flex-row">
+                    <img class="" src="./assets/usuarios/tick.png" width="25"></img>
+                    <p class="mx-auto">Lorem ipsum</p>
+                </div>
+                <div class="w-10/12 mx-auto flex flex-row content-between">
+                    <img class="" src="./assets/usuarios/tick.png" width="25"></img>
+                    <p class="mx-auto">Lorem ipsum</p>
+                </div>
+                <div class="w-10/12 mx-auto flex flex-row content-between">
+                    <img class="" src="./assets/usuarios/tick.png" width="25"></img>
+                    <p class="mx-auto">Lorem ipsum</p>
+                </div>
+                <div class="w-10/12 mx-auto flex flex-row content-between">
+                    <img class="" src="./assets/usuarios/tick.png" width="25"></img>
+                    <p class="mx-auto">Lorem ipsum</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <script src="javascript/usuarios.js"></script>
+</body>
+</html>
