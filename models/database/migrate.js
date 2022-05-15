@@ -1,25 +1,19 @@
-const { Client } = require('pg');
-const fs = require('fs');
 
 require('dotenv').config();
+const fs = require('fs');
 
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-});
+const { Client } = require('pg');
 
-const sql = fs.readFileSync('./models/database/data.sql').toString();
+const migrate = async () => {
+    const client = new Client();
+    await client.connect();
 
-async function migrate(){
-    console.log(process.env.DATABASE_URL);
-    try{
-        await client.connect();
-        return (await client.query(sql)).rows;
-    }catch(e){
-        console.log('Algo paso en en el intento de Conexion -> ' + e);
-    }finally{
-        await client.end();
-    }
-}
+    const sql = fs.readFileSync('./models/database/data.sql').toString();
+
+    const res = await client.query(sql);
+    await client.end();
+    return res.rows;
+};
 
 migrate().then(()=> {
     return console.log("La DataBase ha sido creada.");
