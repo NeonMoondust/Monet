@@ -1,0 +1,21 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+    height: 100vh;
+}
+
+th, td {
+    border: 1px black solid;
+    text-align: center;
+}
+
+th {
+    height: 3.5rem;
+}
+
+td{
+    height: 2.5rem;
+}
+
+tr:nth-child(2n){
+    background-color: rgb(212 212 212 / var(--tw-bg-opacity));;
+}

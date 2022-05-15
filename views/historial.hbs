@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+    <link rel="stylesheet" href="./css/historial.css">
+</head>
+<body>
+    {{> navbar}}
+    <div class="w-full h-screen">
+        <div class="flex flex-row h-20 border-b-2 border-solid border-black">
+            <div class="w-1/12 grid place-items-center border-r-4 border-solid border-black">
+                <p class="text-xl">Filtros</p>
+            </div>
+            <div class="w-3/12 grid place-items-center border-r-4 border-solid border-black">
+                <div class="w-10/12 flex flex-row items-center">
+                    <div class="flex flex-row w-1/3 gap-1">
+                        <p class="text-md text">fecha</p>
+                        <button class="mt-1" id="filtro_fecha">
+                            <img src="./assets/historial/arrow_down.png" width="15">
+                        </button>
+                    </div>
+                    <div class="flex flex-row w-1/3 gap-1">
+                        <p class="text-md">usuario</p>
+                        <button class="mt-1" id="filtro_usuario">
+                            <img src="./assets/historial/arrow_down.png" width="15">
+                        </button>
+                    </div>
+                    <div class="flex flex-row w-1/3 gap-1">
+                        <p class="text-md">producto</p>
+                        <button class="mt-1" id="filtro_producto">
+                            <img src="./assets/historial/arrow_down.png" width="15">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-4/12 border-r-4 border-solid border-black grid place-items-center">
+                <div class="w-11/12 flex flex-row place-content-between">
+                    <div class="flex flex-row gap-6 items-center">
+                        <p class="text-md">desde</p>
+                        <input type="date">
+                    </div>
+                    <div class="flex flex-row gap-6 items-center">
+                        <p class="text-md">hasta</p>
+                        <input type="date">
+                    </div>
+                </div>
+            </div>
+            <div class="w-4/12 grid place-items-center">
+                <div class="w-11/12">
+                    <select name="tipo_producto" id="tipo_producto_filter">
+                        <option value="usuario" selected>Usuario</option>
+                        <option value="producto" selected>Producto</option>
+                        <input class="w-9/12" type="text" id="input_selected_filter" placeholder="Nombre">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="w-full bg-white h-full">
+            <table class="w-11/12 mt-5 border border-black border-solid mx-auto">
+                <thead class="border border-black border-solid">
+                    <th class="w-5/12 text-xl">Producto</th>
+                    <th class="w-1/12 text-xl">Cantidad</th>
+                    <th class="w-4/12 text-xl">Fecha</th>
+                    <th class="w-2/12 text-xl">Usuario</th>
+                </thead>
+                <tbody class="border border-black border-solid">
+                    <tr>
+                        <td>Lente cerca</td>
+                        <td>20</td>
+                        <td>Domingo 08 de Mayo 2022 a las 10:58 pm</td>
+                        <td>Juan Alonso</td>
+                    </tr>
+                    <tr>
+                        <td>Lente cerca</td>
+                        <td>20</td>
+                        <td>Domingo 08 de Mayo 2022 a las 10:58 pm</td>
+                        <td>Juan Alonso</td>
+                    </tr>
+                    <tr>
+                        <td>Lente cerca</td>
+                        <td>20</td>
+                        <td>Domingo 08 de Mayo 2022 a las 10:58 pm</td>
+                        <td>Juan Alonso</td>
+                    </tr>
+                    <tr>
+                        <td>Lente cerca</td>
+                        <td>20</td>
+                        <td>Domingo 08 de Mayo 2022 a las 10:58 pm</td>
+                        <td>Juan Alonso</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="javascript/usuarios.js"></script>
+</body>
+</html>

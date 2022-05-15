@@ -9,6 +9,7 @@ const pendientes_route = require('./routes/pendientesRoute.js');
 const products_route = require('./routes/productsRoute.js');
 const admin_route = require('./routes/adminRoute.js');
 const usuarios_route = require('./routes/usuariosRoute.js');
+const historial_route = require('./routes/historialRoute.js');
 
 const PORT = process.env.PORT || 3000;
 
@@ -30,6 +31,7 @@ app.use('/pendientes', pendientes_route);
 app.use('/products', products_route);
 app.use('/admin', admin_route);
 app.use('/usuarios', usuarios_route);
+app.use('/historial', historial_route);
 //#endregion
 
 //#region View Engine Misc -------
