@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "migrate": "node ./models/database/migrate.js"
+    "migrate": "node ./models/database/migrate.js",
+    "migrate_data": "node ./models/database/migrate_data.js"
   },
   "keywords": [],
   "author": "NeonMoondust <backanconz2@gmail.com>",

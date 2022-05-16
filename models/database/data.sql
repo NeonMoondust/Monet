@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS productos
     id_tipo_producto integer NOT NULL,
     fecha_creacion timestamp without time zone,
     id_marca integer NOT NULL,
-    descripcion character varying(200)[],
+    descripcion character varying(200),
     CONSTRAINT idx_productos PRIMARY KEY (id)
 );
 
@@ -84,16 +84,16 @@ CREATE TABLE IF NOT EXISTS usuarios
     nombre character varying(200) COLLATE pg_catalog."default",
     activo boolean DEFAULT true,
     fecha_creacion timestamp without time zone,
-    validacion character varying(200)[] COLLATE pg_catalog."default",
-    email character varying(100)[] NOT NULL,
-    password character varying(200)[] NOT NULL,
+    validacion character varying(200)COLLATE pg_catalog."default",
+    email character varying(100) NOT NULL,
+    password character varying(200) NOT NULL,
     CONSTRAINT idx_usuarios PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS marcas
 (
-    id serial,
-    nombre character varying(200)[] NOT NULL,
+    id serial NOT NULL,
+    nombre character varying(200) NOT NULL,
     activo boolean NOT NULL DEFAULT true,
     PRIMARY KEY (id)
 );
