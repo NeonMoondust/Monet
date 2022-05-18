@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS usuarios
     validacion character varying(200)COLLATE pg_catalog."default",
     email character varying(100) NOT NULL,
     password character varying(200) NOT NULL,
-    rol varying(100) NOT NULL,
+    rol character varying(100) NOT NULL,
     CONSTRAINT idx_usuarios PRIMARY KEY (id)
 );
 
