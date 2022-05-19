@@ -1,9 +1,18 @@
 {
     "prepared_statement": {
-        "example": {
+        "usuarios": {
             "get":{
-                "name": "example_get",
-                "text": "SELECT * FROM example"
+                "name": "get_usuarios",
+                "text": "SELECT * FROM usuarios;"
+            },
+            "get_products":{
+                "name": "get_products",
+                "text": "SELECT productos.id, productos.activo, productos.nombre, existencias.total_producto AS stock FROM productos JOIN existencias ON productos.id = existencias.id_producto ORDER BY productos.id ASC;"
+            },
+            "add_product":{
+                "name": "add_product",
+                "text": "UPDATE existencias SET total_producto=$1 WHERE id_producto=$2 RETURNING*;",
+                "values": []
             },
             "post":{
                 "name": "example_post",

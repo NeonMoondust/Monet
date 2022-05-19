@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+app.use(express.json());
+
 app.listen(PORT, () => {console.log(`Listening PORT: ${PORT}.`)});
 
 app.use(expressFileUpload({
@@ -34,9 +36,11 @@ app.use('/usuarios', usuarios_route);
 app.use('/historial', historial_route);
 //#endregion
 
-//#region View Engine Misc -------
+//#region Statics Directories
 app.use(express.static('public'));
+//#endregion
 
+//#region View Engine Misc -------
 app.set("view engine", ".hbs");
 
 app.engine("hbs", hbs.engine({

@@ -63,8 +63,8 @@ CREATE TABLE IF NOT EXISTS transferencias
     id_usuario integer NOT NULL,
     id_producto integer NOT NULL,
     cantidad bigint,
-    trabajo varying(200) COLLATE pg_catalog."default" NOT NULL,
-    descripcion varying(200) COLLATE pg_catalog."default",
+    trabajo character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    descripcion character varying(200) COLLATE pg_catalog."default",
     fecha_creacion timestamp without time zone,
     CONSTRAINT idx_transferencia PRIMARY KEY (id)
 );

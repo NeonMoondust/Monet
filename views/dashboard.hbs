@@ -11,47 +11,38 @@
             <p class="text-center font-bold text-2xl mt-10">Filtro de Productos</p>
             <input class="mx-auto w-5/6" type="text">
             <div class="h-3/6 border-solid border border-black w-11/12 bg-white mt-14 mb-20 mx-auto flex flex-col gap-1.5 overflow-y-auto" id="selected_product_container">
-                <div class="aside_element h-28 relative flex flex-row gap-8 items-center border border-solid border-black min-h-max">
-                    <div class="w-3/12 h-full border-solid border border-black relative">
-                        <img class="absolute inset-y-3" src="./assets/img_default.png">
-                    </div>
-                    <div>
-                        <p class="text-xl">ID 232</p>
-                        <p class="text-xl">Lente Cerca</p>
-                    </div>
-                    <p class="text-xl font-bold">X</p>
-                    <input type="text" value="1" class="w-20 h-10 text-center">
-                    <div class="absolute flex flex-row gap-2 bottom-0 left-1/2">
-                        <div class="flex flex-row-reverse gap-2">
-                            <label class="text-sm" for="abono">Abono</label>
-                            <input type="radio" name="pago" id="rdo_abono" checked>
-                        </div>
-                        <div class="flex flex-row-reverse gap-2">
-                            <label class="text-sm" for="pagada">Pagada</label>
-                            <input type="radio" name="pago" id="rdo_pagada">
-                        </div>
-                    </div>
-                </div>
             </div>
             <button class="mx-auto bg-neutral-800 hover:bg-black text-white font-bold py-4 w-5/6" type="button">Finalizar Rebaje</button>
         </aside>
         <div class="product_container col-start-4 col-end-13 w-full bg-white grid grid-cols-5 gap-7 pt-10 max-h-0 pl-10">
-            <div class="border-solid border-2 border-black relative w-5/6 mb-1">
-                <button class="to_add_button w-5 h-5 border-2 border-solid border-black bg-neutral-300 font-bold text-2xl grid place-content-center" id="to_add_button">+</button>
-                <div class="flex flex-row items-center justify-between">
-                    <div class="w-20 h-20 rounded-full border-solid border border-black relative mt-2 ml-2">
-                        <img class="absolute inset-y-3" src="./assets/img_default.png" width="100">
-                        <button class="button-add-to-side absolute text-9xl" onclick="console.log('hola');">+</button>
+            {{#each products}}
+                <div class="border-solid border-2 border-black relative w-5/6 mb-1" id="producto-{{this.id}}">
+                {{#if this.activo}}
+                    <button class="to_add_button w-5 h-5 border-2 border-solid border-black bg-neutral-300 font-bold text-2xl grid place-content-center" id="to_add_button-{{this.id}}" onclick="addOneProduct({{this.id}})">+</button>
+                {{/if}}
+                    <div class="flex flex-row items-center justify-between">
+                        <div class="w-20 h-20 rounded-full border-solid border border-black relative mt-2 ml-2">
+                            <img class="absolute inset-y-3" src="./assets/img_default.png" width="100">
+                            {{#if this.activo}}
+                                <button class="button-add-to-side absolute text-9xl" onclick="addProductToSide({{this.id}})">+</button>
+                            {{/if}}
+                        </div>
+                        <p class="mx-auto">ID {{this.id}}</p>
+                        {{#if this.activo}}
+                            <div class="bg-green-500 rounded-full h-3 w-3 absolute right-2 top-2"></div>
+                        {{else}}
+                            <div class="bg-red-500 rounded-full h-3 w-3 absolute right-2 top-2"></div>
+                        {{/if}}
                     </div>
-                    <p class="mx-auto">ID 232</p>
-                    <div class="bg-green-500 rounded-full h-3 w-3 absolute right-2 top-2"></div>
+                    <div class="border-t-2 border-solid border-black mt-2 flex flex-col gap-.5">
+                        <p class="text-center mt-2">{{this.nombre}}</p>
+                        <p class="text-center mb-3">Stock: {{this.stock}}</p>
+                    </div>
+                    {{#if this.activo}}
+                        <button class="to_decrease_button text-red-500 w-5 h-5 border-2 border-solid border-black bg-neutral-300 font-bold text-2xl grid place-content-center" id="to_decrease_button-{{this.id}}" onclick="decreaseOneProduct({{this.id}})">-</button>
+                    {{/if}}
                 </div>
-                <div class="border-t-2 border-solid border-black mt-2 flex flex-col gap-.5">
-                    <p class="text-center mt-2">Lente cerca</p>
-                    <p class="text-center mb-3">Stock: 4</p>
-                </div>
-                <button class="to_decrease_button text-red-500 w-5 h-5 border-2 border-solid border-black bg-neutral-300 font-bold text-2xl grid place-content-center" id="to_decrease_button">-</button>
-            </div>
+            {{/each}}
         </div>
     </div>
     <script src="javascript/dashboard.js"></script>

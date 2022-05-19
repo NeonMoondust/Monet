@@ -8,7 +8,13 @@
             <a class="font-bold text-xl hover:text-white hover:outline-black" href="/dashboard">Dashboard</a>
             <div class="flex flex-col mr-6 gap-2">
                 <a class="text-center bg-neutral-800 hover:bg-black text-white font-bold py-1 px-2" href="/usuarios">Administra Usuarios</a>
+                {{#if rol}}
+                    {{#if nombre}}
+                        <p>{{nombre}} | {{rol}}</p>
+                    {{/if}}
+                {{else}}
                 <p>Juan Alonso | Administrador</p>
+                {{/if}}
                 <a class="text-center text-blue-500 underline hover:text-blue-700" href="">Cerrar Sesion</a>
             </div>
         </ul>

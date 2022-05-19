@@ -4,20 +4,25 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "start": "nodemon server.js",
     "migrate": "node ./models/database/migrate.js",
-    "migrate_data": "node ./models/database/migrate_data.js"
+    "migrate_data": "node ./models/database/migrate_data.js",
+    "build:css": "npx tailwindcss -i public/css/tailwind.css -o public/css/styles.css --watch"
   },
   "keywords": [],
   "author": "NeonMoondust <backanconz2@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-fileupload": "^1.3.1",
     "express-handlebars": "^6.0.5",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
+    "postcss": "^8.4.13",
+    "postcss-cli": "^9.1.0",
     "tailwindcss": "^3.0.24"
   }
 }

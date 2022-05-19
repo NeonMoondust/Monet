@@ -15,9 +15,6 @@ const { prepared_statement } = JSON.parse(fs.readFileSync('./models/prepared_sta
 
 const PSQL_CONFIG = {
     connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
 };
 
 let pool;
@@ -29,7 +26,14 @@ async function dataProvider(request){
     const this_client = await getClient();
     switch(request.verb){
         case 'get':
-            // data = (await this_client.query(prepared_statement.example.get)).rows;
+            data = (await this_client.query(prepared_statement.usuarios.get)).rows;
+            break;
+        case 'get_products':
+            data = (await this_client.query(prepared_statement.usuarios.get_products)).rows;
+            break;
+        case 'add_product':
+            prepared_statement.usuarios.add_product.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.add_product)).rows;
             break;
         case 'post':
             // prepared_statement.example.post.values = request.values;
@@ -59,7 +63,7 @@ async function getClient(){
         current_client = await createClient();
         return current_client;
     }catch(e){
-        return console.error(`Ha habido un error de conexion con el codigo: ${e.code}.\nFavor revisar los datos de autenticacion y volver a intentarlo.`);
+        return console.error(`Ha habido un error de conexion con el codigo: ${e}.\nFavor revisar los datos de autenticacion y volver a intentarlo.`);
     }
 }
 
