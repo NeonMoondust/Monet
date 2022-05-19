@@ -46,14 +46,14 @@ CREATE TABLE IF NOT EXISTS reservas
     CONSTRAINT idx_reservas PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS tipo_producto
-(
-    id serial NOT NULL,
-    es_importacion boolean NOT NULL DEFAULT false,
-    nombre character varying(200) COLLATE pg_catalog."default" NOT NULL,
-    fecha_creacion timestamp without time zone,
-    CONSTRAINT idx_tipo_producto PRIMARY KEY (id)
-);
+-- CREATE TABLE IF NOT EXISTS tipo_producto
+-- (
+--     id serial NOT NULL,
+--     es_importacion boolean NOT NULL DEFAULT false,
+--     nombre character varying(200) COLLATE pg_catalog."default" NOT NULL,
+--     fecha_creacion timestamp without time zone,
+--     CONSTRAINT idx_tipo_producto PRIMARY KEY (id)
+-- );
 
 CREATE TABLE IF NOT EXISTS transferencias
 (
@@ -63,8 +63,8 @@ CREATE TABLE IF NOT EXISTS transferencias
     id_usuario integer NOT NULL,
     id_producto integer NOT NULL,
     cantidad bigint,
-    trabajo character varying(200) COLLATE pg_catalog."default" NOT NULL,
-    descripcion character varying(200) COLLATE pg_catalog."default",
+    trabajo CHARACTER varying(200) COLLATE pg_catalog."default" NOT NULL,
+    descripcion CHARACTER varying(200) COLLATE pg_catalog."default",
     fecha_creacion timestamp without time zone,
     CONSTRAINT idx_transferencia PRIMARY KEY (id)
 );
@@ -125,12 +125,12 @@ ALTER TABLE IF EXISTS existencias
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS productos
-    ADD CONSTRAINT fk_producto_tipo_producto FOREIGN KEY (id_tipo_producto)
-    REFERENCES tipo_producto (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
+-- ALTER TABLE IF EXISTS productos
+--     ADD CONSTRAINT fk_producto_tipo_producto FOREIGN KEY (id_tipo_producto)
+--     REFERENCES tipo_producto (id) MATCH SIMPLE
+--     ON UPDATE NO ACTION
+--     ON DELETE NO ACTION
+--     NOT VALID;
 
 
 ALTER TABLE IF EXISTS productos
