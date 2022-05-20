@@ -37,6 +37,12 @@ async function addOneProduct(id_product){
     await axios.put('/dashboard/addProduct', {
         products_toAdd:[{product_id: id_product, quantity: 1,}]
     })
+    await axios.post('/dashboard/transferencia', {
+        cantidad: 1,
+        id_producto: id_product,
+        es_abono: false,
+        esta_pagado: false,
+    });
     window.location.reload();
 }
 
@@ -44,6 +50,12 @@ async function decreaseOneProduct(id_product){
     await axios.put('/dashboard/decreaseProduct', {
         products_toDecrease:[{product_id: id_product, quantity: 1,}]
     })
+    await axios.post('/dashboard/transferencia', {
+        cantidad: 1,
+        id_producto: id_product,
+        es_abono: false,
+        esta_pagado: true
+    });
     window.location.reload();
 }
 
@@ -51,8 +63,14 @@ async function finalizarRebaje(){
     const container_input = product_side_container.querySelectorAll('input[type="number"]');
     if(!container_input || !container_input.length) return;
     const aux_array = [];
-    container_input.forEach(product_input => {
+    container_input.forEach( async product_input => {
         aux_array.push({product_id: +product_input.id.split('-')[1], quantity: product_input.value < 0 ? 0 : +product_input.value});
+        await axios.post('/dashboard/transferencia', {
+            cantidad: +product_input.value,
+            id_producto: +product_input.id.split('-')[1],
+            es_abono: true,
+            esta_pagado: false
+        });
     });
     await axios.put('/dashboard/decreaseProduct', {
         products_toDecrease: aux_array,

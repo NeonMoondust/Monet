@@ -13,10 +13,14 @@ async function editProduct(model, product){
     await model.dataProvider({'verb': 'edit_product', values: [product.product_id, product.nombre]});
     return model.dataProvider({'verb': 'edit_existence', values: [product.product_id, product.stock]});
 }
+async function insert_transferencia(model, transferencia){
+    return await model.dataProvider({'verb': 'add_transferencia', values: [transferencia.cantidad, transferencia.id_producto, transferencia.es_abono, transferencia.esta_pagada]});
+}
 
 module.exports = {
     getRawProducts,
     updateProducts,
     createProduct,
     editProduct,
+    insert_transferencia,
 }

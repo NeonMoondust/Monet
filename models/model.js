@@ -62,6 +62,10 @@ async function dataProvider(request){
             prepared_statement.usuarios.edit_existence.values = request.values;
             data = (await this_client.query(prepared_statement.usuarios.edit_existence)).rows;
             break;
+        case 'add_transferencia':
+            prepared_statement.usuarios.add_transferencia.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.add_transferencia)).rows;
+            break;
         case 'post':
             // prepared_statement.example.post.values = request.values;
             // data = (await this_client.query(prepared_statement.example.post)).rows;

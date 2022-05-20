@@ -4,7 +4,7 @@ const axios = require('axios');
 const env = process.env;
 const model = require('../models/model');
 const rol_translation = require('./helpers/rol_translation');
-const {getRawProducts, updateProducts} = require('./helpers/product');
+const {getRawProducts, updateProducts, insert_transferencia} = require('./helpers/product');
 
 const key = env.TOKEN_PRIVATE_KEY;
 
@@ -62,9 +62,19 @@ async function dashboard_decreaseProduct(request, response){
     });
 }
 
+async function dashboard_transferencia(request, response){
+    jwt.verify(request.token, key, async (err, decoded) => {
+        if(err || !decoded) return response.sendStatus(403);
+        const {cantidad,id_producto,es_abono,esta_pagado} = request.body;
+        await insert_transferencia(model, {cantidad: cantidad, id_producto:id_producto, es_abono, esta_pagado})
+        response.sendStatus(200);
+    });
+}
+
 module.exports = {
     dashboard_index,
     dashboard_verify,
     dashboard_addProduct,
     dashboard_decreaseProduct,
+    dashboard_transferencia,
 }

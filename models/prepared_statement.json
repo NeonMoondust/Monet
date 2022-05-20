@@ -49,6 +49,11 @@
                 "text": "UPDATE existencias set total_producto = $2 where id_producto = $1 RETURNING*;",
                 "values": []
             },
+            "add_transferencia":{
+                "name": "add_transferencia",
+                "text": "INSERT INTO transferencias(id_ubicacion_origen, id_ubicacion_destino, id_usuario, id_producto, cantidad, trabajo, descripcion, fecha_creacion, es_abono, esta_pagada) VALUES (1,1,4, $2, $1, 0, 'QA', now(), $3, $4) RETURNING*;",
+                "values": []
+            },
             "post":{
                 "name": "example_post",
                 "text": "INSERT INTO example (email, nombre, password, anos_experiencia, especialidad, foto, estado) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING*;",
