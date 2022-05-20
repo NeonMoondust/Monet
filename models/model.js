@@ -35,6 +35,33 @@ async function dataProvider(request){
             prepared_statement.usuarios.update_product.values = request.values;
             data = (await this_client.query(prepared_statement.usuarios.update_product)).rows;
             break;
+        case 'get_pendingProducts':
+            data = (await this_client.query(prepared_statement.usuarios.get_pendingProducts)).rows;
+            break;
+        case 'finish_pendingProducts':
+            prepared_statement.usuarios.finish_pendingProducts.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.finish_pendingProducts)).rows;
+            break;
+        case 'cancel_pendingProducts':
+            prepared_statement.usuarios.cancel_pendingProducts.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.cancel_pendingProducts)).rows;
+            break;
+        case 'create_product':
+            prepared_statement.usuarios.create_product.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.create_product)).rows;
+            break;
+        case 'create_existence':
+            prepared_statement.usuarios.create_existence.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.create_existence)).rows;
+            break;
+        case 'edit_product':
+            prepared_statement.usuarios.edit_product.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.edit_product)).rows;
+            break;
+        case 'edit_existence':
+            prepared_statement.usuarios.edit_existence.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.edit_existence)).rows;
+            break;
         case 'post':
             // prepared_statement.example.post.values = request.values;
             // data = (await this_client.query(prepared_statement.example.post)).rows;

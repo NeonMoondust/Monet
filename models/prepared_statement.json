@@ -14,6 +14,41 @@
                 "text": "UPDATE existencias SET total_producto=$1 WHERE id_producto=$2 RETURNING*;",
                 "values": []
             },
+            "get_pendingProducts":{
+                "name": "get_pendingProducts",
+                "text": "SELECT transferencias.id, transferencias.id_producto, productos.nombre as nombre_producto, transferencias.cantidad, transferencias.fecha_creacion, transferencias.es_abono FROM transferencias JOIN productos on transferencias.id_producto = productos.id;",
+                "values": []
+            },
+            "finish_pendingProducts":{
+                "name": "finish_pendingProducts",
+                "text": "UPDATE transferencias SET es_abono = false, esta_pagada = true where id = $1 RETURNING*;",
+                "values": []
+            },
+            "cancel_pendingProducts":{
+                "name": "cancel_pendingProducts",
+                "text": "UPDATE transferencias SET es_abono = false, esta_pagada = false where id = $1 RETURNING*;",
+                "values": []
+            },
+            "create_product":{
+                "name": "create_product",
+                "text": "INSERT INTO productos (nombre, activo, id_tipo_producto, fecha_creacion, id_marca, descripcion) VALUES ($1, true, 13, now(), 10, 'QA') RETURNING*;",
+                "values": []
+            },
+            "create_existence":{
+                "name": "create_existence",
+                "text": "INSERT INTO existencias (fecha_creacion, id_producto, total_producto, id_ubicacion, id_usuario) VALUES (now(), $1, $2, 1, $3) RETURNING*;",
+                "values": []
+            },
+            "edit_product":{
+                "name": "edit_product",
+                "text": "UPDATE productos set nombre = $2 where id = $1 RETURNING*;",
+                "values": []
+            },
+            "edit_existence":{
+                "name": "edit_existence",
+                "text": "UPDATE existencias set total_producto = $2 where id_producto = $1 RETURNING*;",
+                "values": []
+            },
             "post":{
                 "name": "example_post",
                 "text": "INSERT INTO example (email, nombre, password, anos_experiencia, especialidad, foto, estado) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING*;",

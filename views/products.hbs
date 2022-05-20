@@ -12,8 +12,8 @@
                 <p class="text-center font-bold text-2xl mt-10 pb-8">Administracion de Productos</p>
             </div>
             <div class="h-full">
-                <p class="text-center font-bold text-2xl underline mb-16">Creacion de Productos</p>
-                <form action="" class="flex flex-col gap-10 mx-8">
+                <p id="aside_title" class="text-center font-bold text-2xl underline mb-16">Creacion de Productos</p>
+                <div class="flex flex-col gap-10 mx-8">
                     <div class="flex flex-row gap-2 w-full">
                         <div class="w-full flex flex-row items-center">
                             <label class="w-1/5" for="id">ID</label>
@@ -33,24 +33,26 @@
                         <input type="file" name="foto" onchange="loadFile(event)">
                     </div>
                     <img id="output" class="w-full max-h-56 bg-white border border-solid border-black">
-                    <button class="bg-neutral-800 hover:bg-black text-white font-bold py-4 w-full" type="button">Ingresar Producto</button>
-                </form>
+                    <button id="aside_button" class="bg-neutral-800 hover:bg-black text-white font-bold py-4 w-full" type="button" onclick="asideButtonHandler()">Ingresar Producto</button>
+                </div>
             </div>
         </aside>
         <div class="flex flex-col gap-3 bg-white pt-10 h-full pl-10 col-start-4 col-end-13 pr-10">
-            <div class="h-20 relative flex flex-row gap-8 items-center border border-solid border-black min-h-max w-full hover:bg-neutral-300 hover:cursor-pointer">
-                <div class="w-1/12 h-full border-solid border border-black">
-                    <img class="product-image h-full bg-white"  src="./assets/img_default.png">
-                </div>
-                <div class="flex flex-row w-5/12">
-                    <p class="text-xl w-1/2 text-center grid items-center">ID 232</p>
-                    <p class="text-xl w-1/2 text-center">Lente Cerca</p>
-                </div>
-                <div class="w-6/12 flex flex-row">
-                    <p class="text-xl font-bold w-1/2 text-center">X</p>
-                    <p class="text-xl font-bold w-1/2 text-center">1</p>
-                </div>
-            </div>
+            {{#each products}}
+                <button class="h-20 relative flex flex-row gap-8 items-center border border-solid border-black min-h-max w-full hover:bg-neutral-300 hover:cursor-pointer" onclick="editProduct({{this.id}}, '{{this.nombre}}', {{this.stock}})">
+                    <div class="w-1/12 h-full border-solid border border-black">
+                        <img id="photo_element-{{this.id}}" class="product-image h-full bg-white"  src="./assets/img_default.png">
+                    </div>
+                    <div class="flex flex-row w-5/12">
+                        <p class="text-xl w-1/2 text-center grid items-center">ID {{this.id}}</p>
+                        <p class="text-xl w-1/2 text-center">{{this.nombre}}</p>
+                    </div>
+                    <div class="w-6/12 flex flex-row">
+                        <p class="text-xl font-bold w-1/2 text-center">X</p>
+                        <p class="text-xl font-bold w-1/2 text-center">{{this.stock}}</p>
+                    </div>
+                </button>
+            {{/each}}
         </div>
     </div>
     <script src="javascript/products.js"></script>
