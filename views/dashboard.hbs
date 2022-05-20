@@ -9,12 +9,12 @@
     <div class="grid grid-cols-12 w-full bg-red">
         <aside class="h-screen bg-neutral-300 col-start-1 col-end-4 border-solid border-r-4 border-black flex flex-col gap-3">
             <p class="text-center font-bold text-2xl mt-10">Filtro de Productos</p>
-            <input class="mx-auto w-5/6" type="text">
+            <input class="mx-auto w-5/6" type="text" id="input_filter" onkeyup="product_filter()">
             <div class="h-3/6 border-solid border border-black w-11/12 bg-white mt-14 mb-20 mx-auto flex flex-col gap-1.5 overflow-y-auto" id="selected_product_container">
             </div>
-            <button class="mx-auto bg-neutral-800 hover:bg-black text-white font-bold py-4 w-5/6" type="button">Finalizar Rebaje</button>
+            <button class="mx-auto bg-neutral-800 hover:bg-black text-white font-bold py-4 w-5/6" type="button" onclick="finalizarRebaje()">Finalizar Rebaje</button>
         </aside>
-        <div class="product_container col-start-4 col-end-13 w-full bg-white grid grid-cols-5 gap-7 pt-10 max-h-0 pl-10">
+        <div class="product_container col-start-4 col-end-13 w-full bg-white grid grid-cols-5 gap-7 pt-10 max-h-0 pl-10" id="product_container">
             {{#each products}}
                 <div class="border-solid border-2 border-black relative w-5/6 mb-1" id="producto-{{this.id}}">
                 {{#if this.activo}}
@@ -34,7 +34,7 @@
                             <div class="bg-red-500 rounded-full h-3 w-3 absolute right-2 top-2"></div>
                         {{/if}}
                     </div>
-                    <div class="border-t-2 border-solid border-black mt-2 flex flex-col gap-.5">
+                    <div class="filter_class border-t-2 border-solid border-black mt-2 flex flex-col gap-.5">
                         <p class="text-center mt-2">{{this.nombre}}</p>
                         <p class="text-center mb-3">Stock: {{this.stock}}</p>
                     </div>

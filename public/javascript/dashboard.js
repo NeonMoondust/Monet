@@ -1,4 +1,5 @@
 const product_side_container = document.getElementById('selected_product_container');
+const input_filter = document.getElementById('input_filter');
 const side_checker = [];
 // document.onclick = (e) => {
 //     console.log(e.target);
@@ -40,5 +41,30 @@ async function addOneProduct(id_product){
 }
 
 async function decreaseOneProduct(id_product){
+    await axios.put('/dashboard/decreaseProduct', {
+        products_toDecrease:[{product_id: id_product, quantity: 1,}]
+    })
+    window.location.reload();
+}
 
+async function finalizarRebaje(){
+    const container_input = product_side_container.querySelectorAll('input[type="number"]');
+    if(!container_input || !container_input.length) return;
+    const aux_array = [];
+    container_input.forEach(product_input => {
+        aux_array.push({product_id: +product_input.id.split('-')[1], quantity: product_input.value < 0 ? 0 : +product_input.value});
+    });
+    await axios.put('/dashboard/decreaseProduct', {
+        products_toDecrease: aux_array,
+    })
+    window.location.reload();
+}
+
+function product_filter(){
+    const all_products_div = document.getElementById('product_container').querySelectorAll('.filter_class');
+    all_products_div.forEach(product_div => {
+        if(input_filter.value == '') product_div.parentNode.style = "";
+        else if(!product_div.children[0].textContent.toLowerCase().includes(input_filter.value.toLowerCase())) product_div.parentNode.style = "display: none;"
+        else product_div.parentNode.style = ""
+    });
 }

@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.get('/', controller.dashboard_verify, controller.dashboard_index);
 router.put('/addProduct', controller.dashboard_verify, controller.dashboard_addProduct);
+router.put('/decreaseProduct', controller.dashboard_verify, controller.dashboard_decreaseProduct);
 
 module.exports = router;

@@ -31,9 +31,9 @@ async function dataProvider(request){
         case 'get_products':
             data = (await this_client.query(prepared_statement.usuarios.get_products)).rows;
             break;
-        case 'add_product':
-            prepared_statement.usuarios.add_product.values = request.values;
-            data = (await this_client.query(prepared_statement.usuarios.add_product)).rows;
+        case 'update_product':
+            prepared_statement.usuarios.update_product.values = request.values;
+            data = (await this_client.query(prepared_statement.usuarios.update_product)).rows;
             break;
         case 'post':
             // prepared_statement.example.post.values = request.values;
