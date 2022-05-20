@@ -66,6 +66,8 @@ CREATE TABLE IF NOT EXISTS transferencias
     trabajo CHARACTER varying(200) COLLATE pg_catalog."default" NOT NULL,
     descripcion CHARACTER varying(200) COLLATE pg_catalog."default",
     fecha_creacion timestamp without time zone,
+    es_abono boolean default false,
+    esta_pagada boolean default false,
     CONSTRAINT idx_transferencia PRIMARY KEY (id)
 );
 
